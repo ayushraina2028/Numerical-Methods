@@ -1,13 +1,16 @@
 #include <iostream>
 #include <math.h>
 #include <iomanip>
+#include <cmath>
 
 using namespace std;
 
 double g(double x) {
-    double a = 10-(double)pow(x,3);
-    a = (double)pow(a,0.5);
-    a = a/2;
+    // double a = x;
+    // a = x + 25*pow(x,-2);
+    // a = a/2;
+
+    double a = tan(x);
     
     return a;
 }
@@ -34,10 +37,10 @@ double findFixedPoint(double approx, double TOL, int N) {
 }
 
 int main() {
-    double approx = 1.5;
+    double approx = 3.2;
     double TOL = pow(10,-4);
-    int N = 40;
-    int precision = 10;
+    int N = 30;
+    int precision = 5;
 
     
 

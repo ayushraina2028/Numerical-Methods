@@ -5,7 +5,7 @@
 using namespace std;
 
 double f(double x) {
-    return (double)pow(x,3) + 4*pow(x,2)-10;
+    return (double)pow(x,3) - x - 1;
 }
 
 double bisection(double a, double b, double TOL, int N) {
@@ -36,9 +36,9 @@ double bisection(double a, double b, double TOL, int N) {
 int main() {
     double a=1;
     double b=2;
-    double TOL = pow(9,-4);
+    double TOL = pow(10,-4);
     int N = 30;
-    int precision = 9;
+    int precision = 5;
 
     double root = bisection(a,b,TOL,N);
     cout << setprecision(precision) << root << endl;
