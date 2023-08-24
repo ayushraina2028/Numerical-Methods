@@ -10,7 +10,7 @@ double g(double x) {
     // a = x + 25*pow(x,-2);
     // a = a/2;
 
-    double a = tan(x);
+    double a = cos(x);
     
     return a;
 }
@@ -37,7 +37,7 @@ double findFixedPoint(double approx, double TOL, int N) {
 }
 
 int main() {
-    double approx = 3.2;
+    double approx = 0.1;
     double TOL = pow(10,-4);
     int N = 30;
     int precision = 5;
