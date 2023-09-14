@@ -54,7 +54,7 @@ int main() {
 
     
     double answer_trapezoid = integrateUsingTrapezoid(lower_limit, upper_limit, subIntervals);
-    cout << "SimpSon method: " << answer_trapezoid << endl;
+    cout << "Trapezoid method: " << answer_trapezoid << endl;
 
     double answer_simpson = integrateUsingSimpson(lower_limit, upper_limit, subIntervals);
     cout << "SimpSon method: " << answer_simpson << endl;

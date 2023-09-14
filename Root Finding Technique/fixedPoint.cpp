@@ -10,9 +10,7 @@ double g(double x) {
     // a = x + 25*pow(x,-2);
     // a = a/2;
 
-    double a = cos(x);
-    
-    return a;
+    return 2*exp(-x);
 }
 
 double findFixedPoint(double approx, double TOL, int N) {
@@ -20,8 +18,9 @@ double findFixedPoint(double approx, double TOL, int N) {
     double p;
     while(i < N) {
         p = g(approx);
-
+        
         if( abs(p-approx) < TOL ) {
+            cout << i << endl;
             return p;
         }
 
@@ -37,9 +36,9 @@ double findFixedPoint(double approx, double TOL, int N) {
 }
 
 int main() {
-    double approx = 0.1;
-    double TOL = pow(10,-4);
-    int N = 30;
+    double approx = 0.5;
+    double TOL = pow(10,-3);
+    int N = 500;
     int precision = 5;
 
     

@@ -5,7 +5,7 @@
 using namespace std;
 
 double f(double x) {
-    return (double)pow(x,3) - x - 1;
+    return (x/2)-exp(-x);
 }
 
 double bisection(double a, double b, double TOL, int N) {
@@ -16,9 +16,10 @@ double bisection(double a, double b, double TOL, int N) {
 
     while(i <= N) {
         mid = low + (high-low)/2;
-
+        cout << i+1 << " " << low << " " << high << " " << mid << endl;
         if(f(mid)==0 || (high-low)/2 < TOL) {
-            return mid;
+            
+            return mid; 
         }
         else if(f(mid) < 0) {
             low = mid;
@@ -34,9 +35,9 @@ double bisection(double a, double b, double TOL, int N) {
 }
 
 int main() {
-    double a=1;
-    double b=2;
-    double TOL = pow(10,-4);
+    double a=0;
+    double b=1;
+    double TOL = pow(10,-5);
     int N = 30;
     int precision = 5;
 

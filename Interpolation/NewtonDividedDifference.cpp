@@ -21,7 +21,7 @@ void approximate(vector <double> coefficients, int degree, double input, vector 
     for(int i = 0;i < l_coeff.size();i++) {
         answer += l_coeff[i]*coefficients[i+1];
     }
-    answer += coefficients[0];
+    answer += 200;
     cout << setprecision(6) << answer << endl;
 }
 
@@ -86,15 +86,19 @@ void newtonDividedDifference(vector <double> x, vector <double> y,vector <double
 
 int main() {
 
-    vector <double> x_vals = {-2,-1,-0,1,2,3};
-    vector <double> y_vals = {1,4,11,16,13,-4};
-
-    double input = 0.25;
+    vector <double> x_vals = {0,0.2,0.4,0.6,0.8,1};
+    vector <double> y_vals = {200,200.006,200.41,204.66,226.21,300};
+    for(int i = 0;i < x_vals.size();i++) {
+        static double s = 1;
+        s *= (0.3-x_vals[i]);
+        cout << s << endl;
+    }
+    double input = 0.3;
     // cout << setprecision(5) << input << endl;
     // cout << y_vals[1]-y_vals[0] << endl;
     // cout << x_vals[3]-x_vals[0] << endl;
 
-    int degree = 3;
+    int degree = 5;
 
     vector <double> coefficients;
     coefficients.push_back(1);
@@ -105,5 +109,5 @@ int main() {
     }
     cout << endl;
 
-    //approximate(coefficients,degree,input,x_vals);
+    approximate(coefficients,degree,input,x_vals);
 }
