@@ -5,12 +5,12 @@
 using namespace std;
 
 double f(double x) {
-    return (x/2)-exp(-x);
+    return pow(x,2)-cos(x)-2;
 }
 
 double bisection(double a, double b, double TOL, int N) {
     double low = a;
-    double high = b;
+    double high = b;    
     double mid;
     int i = 0;
 
@@ -36,8 +36,8 @@ double bisection(double a, double b, double TOL, int N) {
 
 int main() {
     double a=0;
-    double b=1;
-    double TOL = pow(10,-5);
+    double b=2;
+    double TOL = pow(10,-4);
     int N = 30;
     int precision = 5;
 

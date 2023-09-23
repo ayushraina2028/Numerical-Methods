@@ -6,11 +6,11 @@
 using namespace std;
 
 double f(double x) {
-    return x-cos(x);
+    return tan(x);
 }
 
 double newtonRaphson(double approx, double TOL, int N) {
-    double derivative = (f(approx+pow(10,-3))-f(approx))/pow(10,-3);
+    double derivative = (f(approx+pow(10,-2))-f(approx))/pow(10,-2);
     double p;
     int i = 0;
 
@@ -33,7 +33,7 @@ double newtonRaphson(double approx, double TOL, int N) {
 }
 
 int main() {
-    double approx = 0.1;
+    double approx = 4.6;
     int N = 30;
     double TOL = pow(10,-4);
 
