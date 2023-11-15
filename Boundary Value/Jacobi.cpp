@@ -31,10 +31,15 @@ vector<double> iterativeJacobi(vector<vector<double>> A, vector<double> B, vecto
         
         }
         k++;
+        bool flag = true;
         for(int i = 0;i < A.size(); i++) {
-            if(abs(temp_vector[i] - approximate_vector[i]) < pow(10,-3)) {
-                return temp_vector;
+            if(abs(temp_vector[i] - approximate_vector[i]) > pow(10,-3)) {
+                flag = false;
             }
+        }
+
+        if(flag) {
+            return temp_vector;
         }
         for(int i = 0;i < A.size(); i++) {
             approximate_vector[i] = temp_vector[i];
