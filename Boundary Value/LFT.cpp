@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <math.h>
-
+#include <cmath>
 using namespace std;
 
 class Point{
@@ -80,11 +80,11 @@ void display(vector<double> v) {
 
 // change p(x), q(x) and r(x) accordingly
 double p(double x) {
-    return -(2/x);
+    return -2*(1/x);
 }
 
 double q(double x) {
-    return (2/x*x);
+    return 2*pow(x,-2);
 }
 
 double r(double x) {
@@ -110,7 +110,6 @@ int main() {
     // Initializing N cross N matrix with zeroes
     vector<vector<double>> A;
     A.resize(N, vector<double> (N,0.0));
-    display(A);
 
     // Initializing Matrix B of size N
     vector<double> B;
@@ -124,21 +123,15 @@ int main() {
     
     // diagonal values
     for(int i = 0; i < N; i++) {
-        for(int j = 0; j < N; j++) {
+        A[i][i] = 2 + h*h*q(a->x + (i+1)*h);
+    }
 
-            if(i == j) {
-                A[i][j] = 2 + h*h*q(a->x + (i)*h);
-            }
+    for(int i = 0;i < N-1; i++) {
+        A[i][i+1] = -1 + (0.5*h)*p(a->x + (i+1)*h);
+    }
 
-            else if(j == i+1) {
-                A[i][j] = -1 + (h/2)*p(a->x + i*h);
-            }
-
-            else if(j == i-1) {
-                A[i][j] = -1 - (h/2)*p(a->x + (i+1)*h);
-            }
-
-        }
+    for(int i = 0;i < N-1; i++) {
+        A[i+1][i] = -1 -(0.5*h)*p(a->x + (i+2)*h);
     }
 
     cout << "Here is your matrix A: " << endl;
